@@ -1,0 +1,69 @@
+:root {
+  --color-dark-teal: #053742;
+  --color-blu: #39A2DB;
+  --color-light-blu: #A2DBFA;
+  --color-light-gray: #E8F0F2;
+  --color-white: white;
+  --color-grayish: #D3D3D3;
+  --color-background-gray: #F4F4F4;
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-light: 300;
+}
+
+
+.info {
+  font-weight: var(--font-weight-light);
+  margin-bottom: 30px;
+}
+
+.card-message {
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.card-message > .title {
+  font-weight: var(--font-weight-medium);
+  margin-top: 0;
+}
+
+.card-message > .from {
+  font-weight: var(--font-weight-light);
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.card-message > .created-at {
+  font-weight: var(--font-weight-light);
+  color: rgba(0, 0, 0, 0.66);
+  margin-top: 6px;
+}
+
+.card-message > .content {
+  font-weight: var(--font-weight-normal);
+  margin-top: 0;
+}
+
+.btn-delete {
+  align-self: end;
+  outline-color: var(--color-dark-teal);
+  outline-style: solid;
+  outline-width: 1px;
+  background-color: var(--color-light-gray);
+}
+
+.btn-delete:hover {
+  animation-name: btn-delete-hover;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btn-delete-hover {
+  100% {
+    background-color: var(--color-dark-teal);
+    color: white;
+    outline: none;
+  }
+}
+
