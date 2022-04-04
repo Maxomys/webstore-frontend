@@ -23,13 +23,122 @@
 .AddItem_title {
   font-size: 29px;
   font-weight: var(--font-weight-medium);
+  width: 950px;
+  padding: 0 50px;
+}
+
+.AddItem_category-select {
+  background-color: var(--color-white);
 }
 
 .AddItem_label {
   margin: 0;
+  font-size: 23px;
   font-weight: var(--font-weight-light);
+  margin-bottom: 8px;
 }
 
 .AddItem_text-field {
   margin-bottom: 22px;
+  min-height: 45px;
+  min-width: 500px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--color-light-blu);
+  font-size: 20px;
+  font-weight: var(--font-weight-light);
+  padding-left: 10px;
+}
+
+.AddItem_image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+}
+
+.AddItem_image-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.AddItem_thumbnail {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  margin: 12px;
+  position: relative;
+}
+
+.AddItem_thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.AddItem_remove-icon {
+  position: absolute;
+  border-radius: 10px;
+  padding: 30px;
+  opacity: 0;
+}
+
+.AddItem_remove-icon:hover {
+  animation-name: remove-image-hover;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+}
+
+.AddItem_add-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: var(--color-grayish);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddItem_add-image:hover {
+  animation-name: add-image-hover;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+#image-upload {
+  display: none;
+}
+
+.AddItem_add-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.AddItem_description {
+  padding-top: 10px;
+  min-height: 200px;
+  width: 90%;
+}
+
+.AddItem_btn-add {
+  margin-bottom: 250px;
+}
+
+@keyframes add-image-hover {
+  100% {
+    background-color: var(--color-light-blu);
+    transform: scale(105%);
+  }
+}
+
+@keyframes remove-image-hover {
+  100% {
+    opacity: 0.6;
+    background-color: var(--color-grayish);
+  }
 }

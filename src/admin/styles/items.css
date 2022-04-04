@@ -13,12 +13,12 @@
 }
 
 
-.info {
+.Items_info {
   margin-top: 32px;
   font-weight: var(--font-weight-light);
 }
 
-.card-item {
+.Items_card-item {
   width: 880px;
   display: grid;
   justify-items: center;
@@ -31,38 +31,38 @@
   column-gap: 35px;
 }
 
-.item-img {
+.Items_item-img {
   grid-area: image;
   max-height: 170px;
   border-radius: 10px;
 }
 
-.card-text {
+.Items_card-text {
   grid-area: text;
   justify-self: start;
   display: flex;
   flex-direction: column;
 }
 
-.card-text > p {
+.Items_card-text > p {
   margin: 0 0 7px 0;
 }
 
-.card-text > .title {
+.Items_card-text > .Items_title {
   font-weight: var(--font-weight-medium);
 }
 
-.card-text > .category {
+.Items_card-text > .Items_category {
   font-weight: var(--font-weight-light);
   font-size: 14px;
 }
 
-.card-text > .created-at {
+.Items_card-text > .Items_created-at {
   font-weight: var(--font-weight-light);
   font-size: 14px;
 }
 
-.stats {
+.Items_stats {
   font-size: 14px;
   font-weight: var(--font-weight-light);
   height: 43px;
@@ -77,30 +77,30 @@
   align-self: flex-end;
 }
 
-.stats-icon {
+.Items_stats-icon {
   width: 24px;
 }
 
-.stats > p {
+.Items_stats > p {
   margin: 0 22px 0 0;
 }
 
-.stats-icon {
+.Items_stats-icon {
   margin-right: 6px;
 }
 
-.card-buttons {
+.Items_card-buttons {
   grid-area: buttons;
   justify-self: end;
   align-self: flex-end;
   display: flex;
 }
 
-.btn-edit {
+.Items_btn-edit {
   margin-right: 13px;
 }
 
-.btn-remove {
+.Items_btn-remove {
   outline: solid;
   outline-width: 1px;
   outline-color: var(--color-blu);

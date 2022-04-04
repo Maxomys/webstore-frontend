@@ -31,15 +31,15 @@ function Messages() {
 
   return (
     <div className='container-main'>
-      <p className='info'>{messages.length} wiadomości</p>
+      <p className='Messages_info'>{messages.length} wiadomości</p>
       
       {messages ? messages.map(message => (
-        <div className='card card-message' key={message.id}>
-          <p className='title'>{message.productName}</p>
-          <p className='from'>{message.email}</p>
-          <p className='created-at'>Utworzono: {message.createdOn}</p>
-          <p className='content'>{message.messageBody}</p>
-          <div onClick={() => deleteMessageById(message.id)} className='btn btn-delete'>Usuń</div>
+        <div className='card Messages_card-message' key={message.id}>
+          <p className='Messages_title'>{message.productName}</p>
+          <p className='Messages_from'>{message.email}</p>
+          <p className='Messages_created-at'>Utworzono: {message.createdOn}</p>
+          <p className='Messages_content'>{message.messageBody}</p>
+          <div onClick={() => deleteMessageById(message.id)} className='btn Messages_btn-delete'>Usuń</div>
         </div>
       )) : []}
     </div>

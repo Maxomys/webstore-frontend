@@ -6,21 +6,21 @@ const ALL_MESSAGES_URL = MESSAGE_URL + '/all';
 async function getAllMessages() {
   let messageArray = [];
 
-  await Api.get(ALL_MESSAGES_URL)
-    .then(response => {
-      messageArray = response.data;
-    }).catch(error => {
+  const res = await Api.get(ALL_MESSAGES_URL)
+    .catch(error => {
       console.log(error);
     });
 
-    return messageArray;
+  messageArray = res.data;
+
+  return messageArray;
 }
 
 async function deleteMessageById(messageId) {
   await Api.delete(MESSAGE_URL + '/' + messageId)
     .catch(error => {
       console.log(error);
-    })
+    });
 }
 
 

@@ -13,39 +13,39 @@
 }
 
 
-.info {
+.Messages_info {
   font-weight: var(--font-weight-light);
   margin-bottom: 30px;
 }
 
-.card-message {
+.Messages_card-message {
   width: 700px;
   margin-bottom: 30px;
 }
 
-.card-message > .title {
+.Messages_card-message > .Messages_title {
   font-weight: var(--font-weight-medium);
   margin-top: 0;
 }
 
-.card-message > .from {
+.Messages_card-message > .Messages_from {
   font-weight: var(--font-weight-light);
   margin-top: 0;
   margin-bottom: 0px;
 }
 
-.card-message > .created-at {
+.Messages_card-message > .Messages_created-at {
   font-weight: var(--font-weight-light);
-  color: rgba(0, 0, 0, 0.66);
+  color: rgba(0, 0, 0, 0.Messages_66);
   margin-top: 6px;
 }
 
-.card-message > .content {
+.Messages_card-message > .Messages_content {
   font-weight: var(--font-weight-normal);
   margin-top: 0;
 }
 
-.btn-delete {
+.Messages_btn-delete {
   align-self: end;
   outline-color: var(--color-dark-teal);
   outline-style: solid;
@@ -53,13 +53,13 @@
   background-color: var(--color-light-gray);
 }
 
-.btn-delete:hover {
+.Messages_btn-delete:hover {
   animation-name: btn-delete-hover;
   animation-duration: 150ms;
   animation-fill-mode: forwards;
 }
 
-@keyframes btn-delete-hover {
+@keyframes Messages_btn-delete-hover {
   100% {
     background-color: var(--color-dark-teal);
     color: white;

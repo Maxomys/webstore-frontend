@@ -6,34 +6,31 @@ const ALL_ITEMS_URL = ITEM_URL + '/all';
 async function getAllItems() {
   let itemArray = [];
 
-  await Api.get(ALL_ITEMS_URL)
-    .then(response => {
-      itemArray = response.data;
-    }).catch(error => {
-      console.log(error);
-    });
-
+  const res = await Api.get(ALL_ITEMS_URL)
+    .catch(error => console.log(error));
+  
+  itemArray = res.data;
   return itemArray;
 }
 
 async function getItemById(itemId) {
-  let item;
+  let item; 
+  
+  const res = await Api.get(ITEM_URL + '/' + itemId)
+    .catch(error => console.log(error));
 
-  Api.get(ITEM_URL + '/' + itemId)
-    .then(response => {
-      item = response.data;
-    }).catch(error => {
-      console.log(error);
-    });
-
+  item = res.data;
+  
   return item;
 }
 
+async function postItem(item, images) {
+  
+}
+
 async function deleteItemById(itemId) {
-  Api.delete(ITEM_URL + '/' + itemId)
-    .catch(error => {
-      console.log(error);
-    });
+  await Api.delete(ITEM_URL + '/' + itemId)
+    .catch(error => console.log(error));
 }
 
 const ItemService = {
