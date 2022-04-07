@@ -3,15 +3,10 @@ import TokenService from "./TokenService";
 
 const LOGIN_URL = 'http://localhost:8080/api/login'
 
-async function login(username, password) {
+async function login(credentials) {
   
   try {
-    const response = await axios.post(LOGIN_URL, {}, {
-      params: {
-        'username': username,
-        'password': password
-      }
-    });
+    const response = await axios.post(LOGIN_URL, credentials);
 
     if (response.data.accessToken && response.data.refreshToken) {
       TokenService.setAccessToken(response.data.accessToken);
@@ -23,8 +18,13 @@ async function login(username, password) {
   }
 }
 
+function logout() {
+  TokenService.removeTokens();
+}
+
 const AuthService = {
-  login
+  login,
+  logout
 }
 
 export default AuthService;

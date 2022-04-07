@@ -4,6 +4,7 @@ function getAccessToken() {
 
 function setAccessToken(token) {
   localStorage.setItem('accessToken', token);
+  localStorage.setItem('username', getUsernameFromToken(token));
 }
 
 function getRefreshToken() {
@@ -14,19 +15,17 @@ function setRefreshToken(token) {
   localStorage.setItem('refreshToken', token);
 }
 
-function getUsername() {
-  const jtwObj = parseJwt(localStorage.getItem('accessToken'));
-
-  if (jtwObj) {
-    return jtwObj.sub;
-  }
+function removeTokens() {
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken');
+  localStorage.removeItem('username');
 }
 
-function parseJwt(token) {
-  if (!token) { return; }
-  const base64Url = token.split('.')[1];
-  const base64 = base64Url.replace('-', '+').replace('_', '/');
-  return JSON.parse(window.atob(base64));
+function getUsernameFromToken(token) {
+	let base64 = token.split('.')[1];
+  let jsonString = decodeURIComponent(atob(base64));
+  let jsonData = JSON.parse(jsonString);
+  return jsonData.sub;
 }
 
 const TokenService = {
@@ -34,7 +33,7 @@ const TokenService = {
   setAccessToken,
   getRefreshToken,
   setRefreshToken,
-  getUsername
+  removeTokens
 }
 
 export default TokenService;

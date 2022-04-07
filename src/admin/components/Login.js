@@ -1,8 +1,22 @@
+import { useEffect, useState } from 'react';
 import '../styles/login.css'
+import UserService from '../services/UserService'
 
 function Login() {
   
-  
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
+  });
+
+  async function login() {
+    await UserService.login(credentials);
+  }
+
+  useEffect(() => {
+    console.log(credentials);
+  }, [credentials]);
+
   return ( 
     <div className='Login_parent'>
       <div className='card Login_card'>
@@ -14,13 +28,13 @@ function Login() {
         <h2>Please Sign In</h2>
         <div className='Login_input-container'>
           <p className='Login_input-label'>Login</p>
-          <input type='text' className='Login_input-text'/>
+          <input type='text' className='Login_input-text' onChange={e => setCredentials(prev => ({...prev, username: e.target.value}))}/>
         </div>
         <div className='Login_input-container'>
           <p className='Login_input-label'>Password</p>
-          <input type='password' className='Login_input-text'/>
+          <input type='password' className='Login_input-text' onChange={e => setCredentials(prev => ({...prev, password: e.target.value}))}/>
         </div>
-        <div className='btn Login_btn-login'>Login</div>
+        <div className='btn Login_btn-login' onClick={login}>Login</div>
       </div>
     </div>
   );

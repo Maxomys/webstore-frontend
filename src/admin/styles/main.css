@@ -19,6 +19,12 @@ html {
   font-size: 18px;
 }
 
+input[type="text"]
+{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
 body {
   background-color: var(--color-background-gray);
   margin: 0;
