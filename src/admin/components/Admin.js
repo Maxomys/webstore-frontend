@@ -1,5 +1,5 @@
 import '../styles/main.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
 import Items from './Items';
@@ -7,6 +7,7 @@ import Messages from './Messages';
 import Categories from './Categories';
 import Users from './Users';
 import AddItem from './AddItem';
+import Login from './Login';
 
 
 const components = {
@@ -14,7 +15,8 @@ const components = {
   'Messages': Messages,
   'Categories': Categories,
   'Users': Users,
-  'AddItem' : AddItem
+  'AddItem': AddItem,
+  'Login': Login
 };
 
 function Admin() {

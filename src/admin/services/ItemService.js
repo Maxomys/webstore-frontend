@@ -25,7 +25,26 @@ async function getItemById(itemId) {
 }
 
 async function postItem(item, images) {
+  const res = await Api.post(ITEM_URL, item)
+    .catch(error => console.log(error));
   
+  if (res.status !== 201) {
+    console.error("Status: " + res.statusText);
+    return;
+  }
+
+  const savedItem = res.data;
+
+  //upload images
+  for (const img of images) {
+    let formData = new FormData();
+    formData.append('imagefile', img);
+
+    await Api.post('/product/' + savedItem.id + '/image', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+    }}).catch(error => console.log(error));
+  };
 }
 
 async function deleteItemById(itemId) {
@@ -36,7 +55,8 @@ async function deleteItemById(itemId) {
 const ItemService = {
   getAllItems,
   getItemById,
-  deleteItemById
+  deleteItemById,
+  postItem
 }
 
 export default ItemService;

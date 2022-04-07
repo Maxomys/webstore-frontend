@@ -1,6 +1,7 @@
 import '../styles/additem.css';
 import React, { useState, useEffect } from 'react';
 import CategoryService from '../services/CategoryService';
+import ItemService from '../services/ItemService';
 
 function AddItem() {
   
@@ -16,7 +17,7 @@ function AddItem() {
   const [images, setImages] = useState([]);
   
   function addSingleImage(e) {
-    setImages([...images, URL.createObjectURL(e.target.files[0])])
+    setImages([...images, e.target.files[0]])
   }
 
   async function loadCategories() {
@@ -24,7 +25,7 @@ function AddItem() {
   }
 
   async function postNewItem() {
-    
+    ItemService.postItem(newItem, images);
   }
 
   function deleteImage(imgIndex) {
@@ -62,11 +63,11 @@ function AddItem() {
         <p className='AddItem_label'>Zdjęcia</p>
         <div className='AddItem_image-list'>
           {images ? images.map((image, index) => (
-            <div className="AddItem_thumbnail" key={image} onClick={() => deleteImage(index)}>
+            <div className="AddItem_thumbnail" key={index} onClick={() => deleteImage(index)}>
               <svg xmlns="http://www.w3.org/2000/svg" className="AddItem_remove-icon h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
-              <img src={image} alt=''/>
+              <img src={URL.createObjectURL(image)} alt=''/>
             </div>
           )) : <></>}
           <div className="AddItem_add-image">
