@@ -1,6 +1,7 @@
 import '../styles/items.css';
 import ItemService from '../services/ItemService';
 import React, { useState, useEffect } from 'react';
+import Constants from '../services/Constants';
 
 function Items() {
 
@@ -35,7 +36,7 @@ function Items() {
 
       {items ? items.map(item => (
         <div className='card Items_card-item' key={item.id}>
-          <img className='Items_item-img' src='encyklopedia.jpg' alt=''/>
+          <img className='Items_item-img' src={`${Constants.BASE_URL}/image/${item.imageIds[0]}`} alt='img'/>
           <div className='Items_card-text'>
             <p className='Items_title'>{item.name}</p>
             <p className='Items_category'>{item.categoryName}</p>

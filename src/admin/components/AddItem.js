@@ -9,7 +9,6 @@ function AddItem() {
     'name': '',
     'price': null,
     'description': '',
-    'creatorName': '',
     'categoryId': null
   });
 

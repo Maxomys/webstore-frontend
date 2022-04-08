@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import '../styles/login.css'
 import UserService from '../services/UserService'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   
+  let navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -11,11 +14,8 @@ function Login() {
 
   async function login() {
     await UserService.login(credentials);
+    navigate('/');
   }
-
-  useEffect(() => {
-    console.log(credentials);
-  }, [credentials]);
 
   return ( 
     <div className='Login_parent'>

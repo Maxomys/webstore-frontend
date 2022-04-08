@@ -1,12 +1,10 @@
 import axios from "axios";
 import TokenService from "./TokenService";
+import Constants from "./Constants";
 
-const BASE_URL = 'http://localhost:8080/api';
-const LOGIN_URL = '/login';
-const REFRESH_TOKEN_URL = '/token/refresh';
 
 const instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: Constants.BASE_URL,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -36,7 +34,7 @@ instance.interceptors.response.use(
     const originalConfig = error.config;
     
     //
-    if (error.response.status !== 401 || originalConfig.url === LOGIN_URL || originalConfig._retry) {
+    if (error.response.status !== 401 || originalConfig.url === Constants.LOGIN_URL || originalConfig._retry) {
       return Promise.reject(error);
     }
         
@@ -44,7 +42,7 @@ instance.interceptors.response.use(
 
     try {
       const refreshToken = TokenService.getRefreshToken();
-      const res = await axios.get(BASE_URL + REFRESH_TOKEN_URL, {
+      const res = await axios.get(Constants.BASE_URL + Constants.REFRESH_TOKEN_URL, {
         headers: {
           'Authorization': `Bearer ${refreshToken}`
         }
