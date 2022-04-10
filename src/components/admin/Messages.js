@@ -1,5 +1,5 @@
 import '../styles/messages.css';
-import MessageService from '../services/MessageService';
+import MessageService from 'services/MessageService';
 import React, { useState, useEffect } from 'react';
 
 function Messages() {  

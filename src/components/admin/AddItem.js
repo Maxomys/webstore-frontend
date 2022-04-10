@@ -1,7 +1,7 @@
 import '../styles/additem.css';
 import React, { useState, useEffect } from 'react';
-import CategoryService from '../services/CategoryService';
-import ItemService from '../services/ItemService';
+import CategoryService from '../../services/CategoryService';
+import ItemService from '../../services/ItemService';
 
 function AddItem() {
   

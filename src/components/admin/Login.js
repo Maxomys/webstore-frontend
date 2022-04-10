@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../styles/login.css'
-import UserService from '../services/UserService'
+import UserService from 'services/UserService'
 import { useNavigate } from 'react-router-dom';
 
 function Login() {

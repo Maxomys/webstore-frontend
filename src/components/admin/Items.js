@@ -1,7 +1,7 @@
 import '../styles/items.css';
-import ItemService from '../services/ItemService';
+import ItemService from 'services/ItemService';
 import React, { useState, useEffect } from 'react';
-import Constants from '../services/Constants';
+import Constants from 'services/Constants';
 
 function Items() {
 
