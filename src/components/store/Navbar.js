@@ -1,6 +1,6 @@
 function Navbar() {
   return ( 
-  <nav className='flex items-center justify-between h-14 w-11/12 mx-auto mt-3 bg-gradient-to-r from-cyan-500 to-emerald-500 p-4 rounded-xl shadow-md'>
+  <nav className='flex items-center justify-between h-14 max-w-screen-2xl mx-auto mt-3 bg-gradient-to-r from-cyan-500 to-emerald-500 p-4 rounded-xl shadow-md'>
     <div className='flex items-center gap-3'>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />

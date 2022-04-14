@@ -2,6 +2,26 @@ import Api from './Api';
 
 const ITEM_URL = '/product';
 const ALL_ITEMS_URL = ITEM_URL + '/all';
+const ITEMS_PAGE_URL = ITEM_URL + '/page';
+
+async function getItemsPage(page, size, sort, sortDir) {
+  let data = {};
+  try {
+    const res = await Api.get(ITEMS_PAGE_URL, {
+      params: {
+        page,
+        size,
+        sort,
+        sortDir
+      }
+    })
+    data = res.data;
+  } catch (error) {
+    console.log(error);
+  }
+  
+  return data;
+}
 
 async function getAllItems() {
   let itemArray = [];
@@ -56,7 +76,8 @@ const ItemService = {
   getAllItems,
   getItemById,
   deleteItemById,
-  postItem
+  postItem,
+  getItemsPage
 }
 
 export default ItemService;
