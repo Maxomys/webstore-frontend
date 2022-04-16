@@ -1,10 +1,23 @@
 import { PhotographIcon } from '@heroicons/react/solid'
+import { useEffect, useState } from 'react';
+import Constants from 'services/Constants';
 
 function ItemCard({ item }) {
+  const [imageLink, setImageLink] = useState();
+
+  useEffect(() => {
+    if (item.imageIds[0]){
+      setImageLink(Constants.BASE_URL + Constants.IMAGE_URL + '/' + item.imageIds[0]);
+    }
+  }, []);
+  
   return (
     <div className='w-72 flex flex-col gap-2 bg-white rounded-xl shadow-md p-5'>
       <div className='w-56 mb-4 mx-auto bg-neutral-400 rounded-xl shadow-xl'>
-        <PhotographIcon/>
+        {imageLink ? 
+          <img src={imageLink} alt='' />
+          : <PhotographIcon/>
+        }
       </div>
       <p className='text-xl font-medium'>{item.name}</p>
       <p className='text-sm font-extralight text-clip'>

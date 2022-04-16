@@ -14,7 +14,7 @@ function Login() {
 
   async function login() {
     await UserService.login(credentials);
-    navigate('/');
+    navigate('/admin');
   }
 
   return ( 

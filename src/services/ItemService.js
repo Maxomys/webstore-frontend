@@ -64,7 +64,7 @@ async function postItem(item, images) {
       headers: {
         'Content-Type': 'multipart/form-data'
     }}).catch(error => console.log(error));
-  };
+  }
 }
 
 async function deleteItemById(itemId) {

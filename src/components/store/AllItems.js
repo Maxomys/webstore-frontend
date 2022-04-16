@@ -12,7 +12,7 @@ function AllItems() {
 
   const [page, setPage] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageSize, setPageSize] = useState(3);
+  const [pageSize, setPageSize] = useState(2);
   const [sort, setSort] = useState('name');
   const [sortDir, setSortDir] = useState('asc');
 
@@ -47,7 +47,7 @@ function AllItems() {
             All items
           </h2>
           <hr className='my-2'/>
-          <div className='flex flex-row gap-4'>
+          <div className='flex flex-row gap-4 items-center'>
             <CategoriesDropdown categories={categories}/>
             <SortDropdown/>
           </div>
