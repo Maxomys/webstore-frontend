@@ -1,9 +1,9 @@
 # build environment
-FROM node:14-alpine as react-build
-WORKDIR /app
-COPY . ./
-RUN yarn
-RUN yarn build
+# FROM node:14-alpine as react-build
+# WORKDIR /app
+# COPY . ./
+# RUN yarn
+# RUN yarn build
 
 # server environment
 FROM nginx:alpine
