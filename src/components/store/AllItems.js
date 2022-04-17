@@ -5,6 +5,7 @@ import SortDropdown from './SortDropdown';
 import ItemService from 'services/ItemService';
 import Pagination from './Pagination';
 import ItemCard from './ItemCard';
+import Constants from "services/Constants";
 
 function AllItems() {
 
@@ -19,6 +20,10 @@ function AllItems() {
   async function getPage(pageNr) {
     setIsLoading(true);
     let page1 = await ItemService.getItemsPage(pageNr, pageSize, sort, sortDir);
+    console.log(page1);
+    if (page1 === undefined) {
+      return;
+    }
     setPage(page1);
     setCurrentPage(page1.number);
     console.log(page);
@@ -27,6 +32,7 @@ function AllItems() {
 
   useEffect(() => {
     getPage(currentPage);
+
   }, [currentPage]);
 
   let categories = [
@@ -41,6 +47,7 @@ function AllItems() {
   return ( 
     <React.Fragment>
       <Navbar/>
+      <h1>{Constants.BASE_URL}</h1>
       <div className='flex flex-col mx-auto mt-20 max-w-6xl'>
         <div className='mx-5'>
           <h2 className='text-3xl font-medium text-black/70 font-sans'>

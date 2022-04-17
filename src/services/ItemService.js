@@ -18,6 +18,7 @@ async function getItemsPage(page, size, sort, sortDir) {
     data = res.data;
   } catch (error) {
     console.log(error);
+    return undefined;
   }
   
   return data;
@@ -26,10 +27,17 @@ async function getItemsPage(page, size, sort, sortDir) {
 async function getAllItems() {
   let itemArray = [];
 
-  const res = await Api.get(ALL_ITEMS_URL)
-    .catch(error => console.log(error));
+  try {
+    const res = await Api.get(ALL_ITEMS_URL);
+    itemArray = res.data;
+  } catch (error) {
+    console.log(error);
+  }
+
+  // const res = await Api.get(ALL_ITEMS_URL)
+  //   .catch(error => console.log(error));
   
-  itemArray = res.data;
+  // itemArray = res.data;
   return itemArray;
 }
 
