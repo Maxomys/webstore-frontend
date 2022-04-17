@@ -8,7 +8,7 @@ steps:
     entrypoint: npm
     args: ['run', 'build']
     env:
-    -'REACT_APP_SERVER_URL=$_SERVER_URL'
+    - 'REACT_APP_SERVER_URL=$_SERVER_URL'
   
   # build the container
   - name: 'gcr.io/cloud-builders/docker'
