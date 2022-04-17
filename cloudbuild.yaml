@@ -24,7 +24,7 @@ steps:
       - 'deploy'
       - 'webstore-frontend'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/webstore:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/webstore-frontend:$COMMIT_SHA'
       - '--region'
       - 'europe-north1'
 images:
