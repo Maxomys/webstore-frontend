@@ -1,12 +1,12 @@
 steps:
   - name: node
-  entrypoint: npm
-  args: ['install']
+    entrypoint: npm
+    args: ['install']
   
   # prod build
   - name: node
-  entrypoint: npm
-  args: ['run', 'build']
+    entrypoint: npm
+    args: ['run', 'build']
   
   # build the container
   - name: 'gcr.io/cloud-builders/docker'
