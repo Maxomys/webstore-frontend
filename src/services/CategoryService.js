@@ -1,6 +1,7 @@
 import Api from './Api'
+import Constants from './Constants';
 
-const CATEGORY_URL = '/category';
+const CATEGORY_URL = Constants.CATEGORY_URL;
 
 async function getAllCategories() {
   let categories = [];

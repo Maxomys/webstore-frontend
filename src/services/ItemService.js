@@ -1,6 +1,7 @@
 import Api from './Api';
+import Constants from './Constants';
 
-const ITEM_URL = '/product';
+const ITEM_URL = Constants.ITEM_URL;
 const ALL_ITEMS_URL = ITEM_URL + '/all';
 const ITEMS_PAGE_URL = ITEM_URL + '/page';
 

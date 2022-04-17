@@ -1,10 +1,3 @@
-// const Constants = {
-//   BASE_URL: 'http://localhost:8080/api',
-//   LOGIN_URL: '/login',
-//   REFRESH_TOKEN_URL: '/token/refresh',
-//   IMAGE_URL: '/image'
-// }
-
 function constants() {
   this.BASE_URL = function() {
     if (process.env.NODE_ENV === 'development') {
@@ -17,6 +10,9 @@ function constants() {
   this.LOGIN_URL = '/login';
   this.REFRESH_TOKEN_URL = '/token/refresh';
   this.IMAGE_URL = '/image';
+  this.CATEGORY_URL = '/category';
+  this.ITEM_URL = '/product';
+  this.MESSAGE_URL = '/inquiry';
 }
 
 const Constants = new constants();

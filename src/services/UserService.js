@@ -1,7 +1,8 @@
 import axios from "axios";
+import Constants from "./Constants";
 import TokenService from "./TokenService";
 
-const LOGIN_URL = 'http://localhost:8080/api/login'
+const LOGIN_URL = Constants.BASE_URL + Constants.LOGIN_URL;
 
 async function login(credentials) {
   
