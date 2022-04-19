@@ -2,6 +2,7 @@ import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
 function CategoriesDropdown({ categories }) {
+
   return ( 
     <Menu>
       <div className='relative'>
@@ -18,7 +19,7 @@ function CategoriesDropdown({ categories }) {
                       active ? 'bg-teal-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
-                    {category.name}
+                    {category.description}
                   </button>
                 )}
               </Menu.Item>

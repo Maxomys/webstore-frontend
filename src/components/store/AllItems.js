@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import CategoriesDropdown from './CategoriesDropdown';
 import SortDropdown from './SortDropdown';
 import ItemService from 'services/ItemService';
 import Pagination from './Pagination';
 import ItemCard from './ItemCard';
-import Constants from "services/Constants";
+import CategoryService from "services/CategoryService";
+import PageSizeDropdown from "./PageSizeDropdown";
 
 function AllItems() {
 
@@ -16,38 +17,32 @@ function AllItems() {
   const [pageSize, setPageSize] = useState(2);
   const [sort, setSort] = useState('name');
   const [sortDir, setSortDir] = useState('asc');
+  const [categories, setCategories] = useState([]);
 
   async function getPage(pageNr) {
     setIsLoading(true);
     let page1 = await ItemService.getItemsPage(pageNr, pageSize, sort, sortDir);
-    console.log(page1);
     if (page1 === undefined) {
       return;
     }
     setPage(page1);
     setCurrentPage(page1.number);
-    console.log(page);
     setIsLoading(false);
+  }
+
+  async function getCategories() {
+    setCategories(await CategoryService.getAllCategories());
   }
 
   useEffect(() => {
     getPage(currentPage);
+    getCategories();
 
-  }, [currentPage]);
-
-  let categories = [
-    {
-      name: 'Category1'
-    },
-    {
-      name: 'Category2'
-    }
-  ];
+  }, [currentPage, sort, sortDir, pageSize]);
 
   return ( 
     <React.Fragment>
       <Navbar/>
-      <h1>{Constants.BASE_URL}</h1>
       <div className='flex flex-col mx-auto mt-20 max-w-6xl'>
         <div className='mx-5'>
           <h2 className='text-3xl font-medium text-black/70 font-sans'>
@@ -55,8 +50,9 @@ function AllItems() {
           </h2>
           <hr className='my-2'/>
           <div className='flex flex-row gap-4 items-center'>
-            <CategoriesDropdown categories={categories}/>
-            <SortDropdown/>
+            <CategoriesDropdown categories={categories} onCategoryChange={0}/>
+            <SortDropdown sort={sort} sortDir={sortDir} onSortChange={sort => setSort(sort)} onDirectionChange={dir => setSortDir(dir)}/>
+            <PageSizeDropdown pageSize={pageSize} onPageSizeChange={pSize => setPageSize(pSize)}/>
           </div>
         </div>
         {isLoading ? 
