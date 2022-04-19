@@ -1,4 +1,4 @@
-import { PhotographIcon } from '@heroicons/react/solid'
+import { PhotographIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 import Constants from 'services/Constants';
 
