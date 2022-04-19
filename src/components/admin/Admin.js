@@ -7,7 +7,6 @@ import Messages from './Messages';
 import Categories from './Categories';
 import Users from './Users';
 import AddItem from './AddItem';
-import Login from './Login';
 
 
 const components = {
@@ -15,8 +14,7 @@ const components = {
   'Messages': Messages,
   'Categories': Categories,
   'Users': Users,
-  'AddItem': AddItem,
-  'Login': Login
+  'AddItem': AddItem
 };
 
 function Admin() {
@@ -31,9 +29,9 @@ function Admin() {
 
   return (
     <div>
+      <View/>
       <TopBar/>
       <SideBar onLinkClick={sideBarOnClick} active={content}/>
-      <View/>
     </div>
   )
 

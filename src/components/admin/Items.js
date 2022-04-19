@@ -40,7 +40,7 @@ function Items() {
           <div className='Items_card-text'>
             <p className='Items_title'>{item.name}</p>
             <p className='Items_category'>{item.categoryName}</p>
-            <p className='Items_created-at'>Dodane: todo</p>
+            <p className='Items_created-at'>{item.createdAt}</p>
           </div>
           <div className='Items_stats'>
             <p>Statystyki</p>

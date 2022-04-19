@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   
   let navigate = useNavigate();
+  const [loginError, setLoginError] = useState(false);
 
   const [credentials, setCredentials] = useState({
     username: '',
@@ -13,7 +14,11 @@ function Login() {
   });
 
   async function login() {
-    await UserService.login(credentials);
+    let result = await UserService.login(credentials);
+    if (result) {
+      setLoginError(true);
+      return;
+    }
     navigate('/admin');
   }
 
@@ -34,6 +39,9 @@ function Login() {
           <p className='Login_input-label'>Password</p>
           <input type='password' className='Login_input-text' onChange={e => setCredentials(prev => ({...prev, password: e.target.value}))}/>
         </div>
+        {loginError && <div>
+          <p className='Login_error-message'>Login error</p>
+        </div>}
         <div className='btn Login_btn-login' onClick={login}>Login</div>
       </div>
     </div>
