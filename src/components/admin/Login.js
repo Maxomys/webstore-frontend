@@ -39,9 +39,11 @@ function Login() {
           <p className='Login_input-label'>Password</p>
           <input type='password' className='Login_input-text' onChange={e => setCredentials(prev => ({...prev, password: e.target.value}))}/>
         </div>
-        {loginError && <div>
-          <p className='Login_error-message'>Login error</p>
-        </div>}
+        {loginError && 
+          <div className='Login_error-message'>
+            <p className=''>Login error</p>
+          </div>
+        }
         <div className='btn Login_btn-login' onClick={login}>Login</div>
       </div>
     </div>

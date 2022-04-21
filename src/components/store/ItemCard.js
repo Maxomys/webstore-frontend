@@ -28,7 +28,7 @@ function ItemCard({ item }) {
           <p className='text-xs font-light'>Price</p>
           <p className='text-base font-bold'>{item.price} PLN</p>
         </div>
-        <button className='bg-teal-500 rounded-lg p-2 text-base text-white shadow-lg'>Message</button>
+        <button className='bg-teal-500 rounded-lg p-2 text-base text-white shadow-lg hover:brightness-110'>Message</button>
       </div>
     </div>
   );

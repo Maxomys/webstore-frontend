@@ -19,16 +19,15 @@
 }
 
 .Items_card-item {
-  width: 880px;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 230px 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 4fr 1fr;
   grid-template-areas: 
-    "image text text" 
-    "image stats buttons";
-  column-gap: 35px;
+    "image text" 
+    "stats buttons ";
+  column-gap: 15px;
 }
 
 .Items_item-img {
@@ -73,8 +72,8 @@
   background-color: var(--color-blu);
   border-radius: 10px;
   color: white;
-  justify-self: start;
-  align-self: flex-end;
+  justify-self: center;
+  align-self: center;
 }
 
 .Items_stats-icon {
@@ -91,7 +90,7 @@
 
 .Items_card-buttons {
   grid-area: buttons;
-  justify-self: end;
+  justify-self: center;
   align-self: flex-end;
   display: flex;
 }
@@ -105,4 +104,27 @@
   outline-width: 1px;
   outline-color: var(--color-blu);
   background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .Items_card-item {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 230px 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+      "image text text" 
+      "image stats buttons";
+    column-gap: 35px;
+  }
+  
+  .Items_stats {
+    justify-self: start;
+    align-self: flex-end;
+  }
+
+  .Items_card-buttons {
+    justify-self: end;
+  }
 }

@@ -74,6 +74,15 @@
 
 .Login_error-message {
   color: crimson;
+  background-color: rgba(0, 0, 0, 0.21);
+  width: 100%;
+  border-radius: 10px;
+  padding: 3px 50px;
+  margin-bottom: 10px;
+}
+
+.Login_error-message p {
+  text-align: center;
 }
 
 .Login_btn-login {

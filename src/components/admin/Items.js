@@ -34,7 +34,7 @@ function Items() {
     <div className='container-main'>
       <p className='Items_info'>{items.length} przedmioty</p>
 
-      {items ? items.map(item => (
+      {items && items.map(item => (
         <div className='card Items_card-item' key={item.id}>
           <img className='Items_item-img' src={`${Constants.BASE_URL}/image/${item.imageIds[0]}`} alt='img'/>
           <div className='Items_card-text'>
@@ -59,7 +59,7 @@ function Items() {
             <div className='btn Items_btn-remove' onClick={() => deleteItemById(item.id)}>Usuń</div>
           </div>
         </div>
-      )) : []}
+      ))}
     </div>
   );
 }
