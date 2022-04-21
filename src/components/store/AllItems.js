@@ -36,20 +36,22 @@ function AllItems() {
 
   useEffect(() => {
     getPage(currentPage);
-    getCategories();
-
   }, [currentPage, sort, sortDir, pageSize]);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return ( 
     <React.Fragment>
-      <Navbar/>
-      <div className='flex flex-col mx-auto mt-20 max-w-6xl'>
+      <Navbar currentTab={'Items'}/>
+      <div className='flex flex-col mx-auto mt-10 md:mt-20 max-w-6xl'>
         <div className='mx-5'>
           <h2 className='text-3xl font-medium text-black/70 font-sans'>
             All items
           </h2>
           <hr className='my-2'/>
-          <div className='flex flex-row gap-4 items-center'>
+          <div className='flex flex-row  md:gap-4 items-center'>
             <CategoriesDropdown categories={categories} onCategoryChange={0}/>
             <SortDropdown sort={sort} sortDir={sortDir} onSortChange={sort => setSort(sort)} onDirectionChange={dir => setSortDir(dir)}/>
             <PageSizeDropdown pageSize={pageSize} onPageSizeChange={pSize => setPageSize(pSize)}/>

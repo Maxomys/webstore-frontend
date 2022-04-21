@@ -18,7 +18,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       if (i === currentPage + 1) {
         elems.push(
           <a
-            className='z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium cursor-pointer'
+            className='z-10 bg-teal-50 border-teal-500 text-teal-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium cursor-pointer'
           >{i}</a>
         )
         continue;

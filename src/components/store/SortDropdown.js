@@ -9,7 +9,7 @@ function SortDropdown({ sort, sortDir, onSortChange, onDirectionChange }) {
         <Menu.Button className='flex items-center gap-2 font-semibold text-black/70 p-1'>Sort
           <ChevronDownIcon className='h-5 w-5 opacity-50'/>
         </Menu.Button>
-        <Menu.Items className='bg-white w-64 rounded-md shadow-md p-2 divide-y-2 absolute top-8'>
+        <Menu.Items className='bg-white w-64 rounded-md shadow-md p-2 divide-y-2 absolute top-8 -left-20 md:left-0'>
           <div className='p-1 grid grid-cols-2'>
             <div className='flex flex-col justify-start items-start'>
               <p className='font-medium'>Sort By</p>
