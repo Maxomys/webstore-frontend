@@ -13,7 +13,7 @@ function Items() {
   }, []);
 
   async function loadItems() {
-    setItems(await ItemService.getAllItems());
+    setItems(await ItemService.getAllItemsForUser());
     setLoading(false);
   }
   

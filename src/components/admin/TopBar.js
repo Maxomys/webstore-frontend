@@ -21,7 +21,7 @@ function TopBar() {
 
   function logout() {
     TokenService.removeTokens();
-    window.location.reload();
+    navigate('/');
   }
   
   useEffect(() => {

@@ -4,6 +4,7 @@ import Constants from './Constants';
 const ITEM_URL = Constants.ITEM_URL;
 const ALL_ITEMS_URL = ITEM_URL + '/all';
 const ITEMS_PAGE_URL = ITEM_URL + '/page';
+const ITEMS_USER_URL = ITEM_URL + '/my';
 
 async function getItemsPage(page, size, sort, sortDir) {
   let data = {};
@@ -39,6 +40,18 @@ async function getAllItems() {
   //   .catch(error => console.log(error));
   
   // itemArray = res.data;
+  return itemArray;
+}
+
+async function getAllItemsForUser() {
+  let itemArray = [];
+
+  try {
+    const res = await Api.get(ITEMS_USER_URL);
+    itemArray = res.data;
+  } catch (error) {
+    console.log(error);
+  }
   return itemArray;
 }
 
@@ -83,6 +96,7 @@ async function deleteItemById(itemId) {
 
 const ItemService = {
   getAllItems,
+  getAllItemsForUser,
   getItemById,
   deleteItemById,
   postItem,
