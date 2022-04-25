@@ -24,25 +24,27 @@ function Messages() {
   if (loading) {
     return (
       <div className='container-main'>
-        <img src='loading.svg' width='70' height='70'/>
+        <img src='loading.svg' width='70' height='70' alt=''/>
       </div>
     )
   }
 
   return (
-    <div className='container-main'>
-      <p className='Messages_info'>{messages.length} wiadomości</p>
-      
-      {messages ? messages.map(message => (
-        <div className='card Messages_card-message' key={message.id}>
-          <p className='Messages_title'>{message.productName}</p>
-          <p className='Messages_from'>{message.email}</p>
-          <p className='Messages_created-at'>Utworzono: {message.createdOn}</p>
-          <p className='Messages_content'>{message.messageBody}</p>
-          <div onClick={() => deleteMessageById(message.id)} className='btn Messages_btn-delete'>Usuń</div>
-        </div>
-      )) : []}
-    </div>
+    <>
+      <div className='container-main'>
+        <p className='Messages_info'>{messages.length} wiadomości</p>
+        
+        {messages ? messages.map(message => (
+          <div className='card Messages_card-message' key={message.id}>
+            <p className='Messages_title'>{message.productName}</p>
+            <p className='Messages_from'>{message.email}</p>
+            <p className='Messages_created-at'>Utworzono: {message.createdOn}</p>
+            <p className='Messages_content'>{message.messageBody}</p>
+            <div onClick={() => deleteMessageById(message.id)} className='btn Messages_btn-delete'>Usuń</div>
+          </div>
+        )) : []}
+      </div>
+    </>
   );
 }
 

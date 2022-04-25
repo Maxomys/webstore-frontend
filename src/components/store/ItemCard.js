@@ -12,7 +12,7 @@ function ItemCard({ item }) {
   }, []);
   
   return (
-    <div className='w-72 flex flex-col gap-2 bg-white rounded-xl shadow-md p-5'>
+    <div className='w-72 flex flex-col gap-2 bg-white hover:bg-gray-100 rounded-xl shadow-md p-5'>
       <div className='w-56 mb-4 mx-auto bg-neutral-400 rounded-xl shadow-xl'>
         {imageLink ? 
           <img src={imageLink} alt='' />
