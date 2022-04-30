@@ -1,8 +1,12 @@
 import { PhotographIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Constants from 'services/Constants';
 
 function ItemCard({ item }) {
+
+  const navigate = useNavigate();
+
   const [imageLink, setImageLink] = useState();
 
   useEffect(() => {
@@ -12,10 +16,10 @@ function ItemCard({ item }) {
   }, []);
   
   return (
-    <div className='w-72 flex flex-col gap-2 bg-white hover:bg-gray-100 rounded-xl shadow-md p-5'>
+    <div className='w-72 flex flex-col gap-2 bg-white hover:bg-slate-50 rounded-xl shadow-md p-5' onClick={() => navigate('/item/' + item.id)}>
       <div className='w-56 mb-4 mx-auto bg-neutral-400 rounded-xl shadow-xl'>
         {imageLink ? 
-          <img src={imageLink} alt='' />
+          <img className='rounded-xl' src={imageLink} alt='' />
           : <PhotographIcon/>
         }
       </div>
@@ -28,7 +32,7 @@ function ItemCard({ item }) {
           <p className='text-xs font-light'>Price</p>
           <p className='text-base font-bold'>{item.price} PLN</p>
         </div>
-        <button className='bg-teal-500 rounded-lg p-2 text-base text-white shadow-lg hover:brightness-110'>Message</button>
+        <button className='bg-teal-500 rounded-lg p-2 text-base text-white shadow-lg hover:brightness-110'>Details</button>
       </div>
     </div>
   );

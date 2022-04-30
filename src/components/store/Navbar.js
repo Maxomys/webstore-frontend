@@ -1,7 +1,8 @@
-import { Disclosure } from '@headlessui/react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MenuIcon, ShoppingBagIcon, XIcon, UserCircleIcon } from '@heroicons/react/outline'
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthService from 'services/AuthService';
 
 const navigation = [
   {name: 'Home', href: '/'},
@@ -21,6 +22,11 @@ function Navbar({ currentTab }) {
     if (username) {
       setUsername(username);
     }
+  }
+
+  function logout() {
+    AuthService.logout();
+    navigate('/');
   }
 
   useEffect(() => {
@@ -48,10 +54,29 @@ function Navbar({ currentTab }) {
               </div>
             </div>
             {username ? 
-              <div className='hidden md:flex md:flex-row md:items-center gap-2'>
-                <UserCircleIcon className='h-8 w-8 text-white'/>
-                <p className='font-normal text-white'>{username}</p>
-              </div>
+              <Menu>
+                <div className='relative'>
+                  <Menu.Button className='hidden md:flex md:flex-row md:items-center gap-2'>
+                    <UserCircleIcon className='h-8 w-8 text-white'/>
+                    <p className='font-normal text-white'>{username}</p>
+                  </Menu.Button>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className='absolute bg-white rounded-lg p-3 top-10'>
+                      <Menu.Item>
+                        <button onClick={logout}>Logout</button>
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </div>
+              </Menu>
             : <div className='hidden md:flex divide-x-2 divide-black divide-opacity-10'>
                 <button className='bg-black bg-opacity-20 rounded-l-xl px-5 py-2 transition-opacity hover:bg-opacity-30' 
                   onClick={() => navigate('/login')}

@@ -24,10 +24,19 @@ async function deleteMessageById(messageId) {
     });
 }
 
+async function postMessage(message) {
+  try {
+    await Api.post(MESSAGE_URL, message);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 
 const MessageService = {
   getAllMessages,
-  deleteMessageById
+  deleteMessageById,
+  postMessage
 }
 
 export default MessageService;

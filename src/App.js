@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Admin from './components/admin/Admin';
 import Login from "./components/admin/Login";
 import AllItems from 'components/store/AllItems';
+import ItemOverview from 'components/store/ItemOverview';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate replace to="/all"/>}/>
         <Route path='/all' element={<AllItems/>}/>
+        <Route path='/item/:itemId' element={<ItemOverview/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/admin' element={<Navigate replace to="/admin/items"/>}/>
         <Route path='/admin/*' element={<Admin/>}/>

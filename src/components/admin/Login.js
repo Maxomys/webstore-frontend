@@ -1,6 +1,6 @@
 import {  useState } from 'react';
 import '../styles/login.css'
-import UserService from 'services/UserService'
+import AuthService from 'services/AuthService'
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -14,7 +14,7 @@ function Login() {
   });
 
   async function login() {
-    let result = await UserService.login(credentials);
+    let result = await AuthService.login(credentials);
     if (result) {
       setLoginError(true);
       return;

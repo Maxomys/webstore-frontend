@@ -16,7 +16,6 @@ async function login(credentials) {
   
   } catch (error) {
     return error;
-    console.log(error);
   }
 }
 

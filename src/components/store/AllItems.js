@@ -14,7 +14,7 @@ function AllItems() {
 
   const [page, setPage] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize, setPageSize] = useState(4);
   const [sort, setSort] = useState('name');
   const [sortDir, setSortDir] = useState('asc');
   const [categories, setCategories] = useState([]);
@@ -42,6 +42,11 @@ function AllItems() {
     getCategories();
   }, []);
 
+  function onPageSizeChange(pSize) {
+    setCurrentPage(0);
+    setPageSize(pSize);
+  }
+
   return ( 
     <React.Fragment>
       <Navbar currentTab={'Items'}/>
@@ -54,7 +59,7 @@ function AllItems() {
           <div className='flex flex-row  md:gap-4 items-center'>
             <CategoriesDropdown categories={categories} onCategoryChange={0}/>
             <SortDropdown sort={sort} sortDir={sortDir} onSortChange={sort => setSort(sort)} onDirectionChange={dir => setSortDir(dir)}/>
-            <PageSizeDropdown pageSize={pageSize} onPageSizeChange={pSize => setPageSize(pSize)}/>
+            <PageSizeDropdown pageSize={pageSize} onPageSizeChange={pSize => onPageSizeChange(pSize)}/>
           </div>
         </div>
         {isLoading ? 
