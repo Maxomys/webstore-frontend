@@ -26,6 +26,26 @@ async function getItemsPage(page, size, sort, sortDir) {
   return data;
 }
 
+async function getItemsInCategoryPage(page, size, sort, sortDir, categoryId) {
+  let data = {};
+  try {
+    const res = await Api.get(ITEM_URL + '/category/' + categoryId + '/page', {
+      params: {
+        page,
+        size,
+        sort,
+        sortDir
+      }
+    })
+    data = res.data;
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+  
+  return data;
+}
+
 async function getAllItems() {
   let itemArray = [];
 
@@ -100,7 +120,8 @@ const ItemService = {
   getItemById,
   deleteItemById,
   postItem,
-  getItemsPage
+  getItemsPage,
+  getItemsInCategoryPage
 }
 
 export default ItemService;

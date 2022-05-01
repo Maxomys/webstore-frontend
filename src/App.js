@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigate replace to="/all"/>}/>
         <Route path='/all' element={<AllItems/>}/>
+        <Route path='/all/:categoryId' element={<AllItems/>}/>
         <Route path='/item/:itemId' element={<ItemOverview/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/admin' element={<Navigate replace to="/admin/items"/>}/>

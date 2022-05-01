@@ -1,5 +1,6 @@
 import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { Link } from 'react-router-dom';
 
 function CategoriesDropdown({ categories }) {
 
@@ -10,17 +11,34 @@ function CategoriesDropdown({ categories }) {
           <ChevronDownIcon className='h-5 w-5 opacity-50'/>
         </Menu.Button>
         <Menu.Items className='bg-white w-48 rounded-md shadow-md p-2 divide-y-2 absolute top-8'>
-          {categories.map((category, index) => (
-            <div className='p-1'>
-              <Menu.Item>
-                {({ active }) => (
+          <div className='p-1 border-b'>
+            <Menu.Item>
+              {({ active }) => (
+                <Link to={'/all'}>
                   <button
                     className={`${
                       active ? 'bg-teal-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
-                    {category.description}
+                    All
                   </button>
+                </Link>
+              )}
+            </Menu.Item>
+          </div>
+          {categories.map((category, index) => (
+            <div key={category.id} className='p-1'>
+              <Menu.Item>
+                {({ active }) => (
+                  <Link to={'/all/' + category.id}>
+                    <button
+                      className={`${
+                        active ? 'bg-teal-500 text-white' : 'text-gray-900'
+                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                    >
+                      {category.description}
+                    </button>
+                  </Link>
                 )}
               </Menu.Item>
             </div>
