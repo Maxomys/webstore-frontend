@@ -19,14 +19,17 @@
 }
 
 .Items_card-item {
+  min-width: 320px;
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 230px 1fr;
-  grid-template-rows: 4fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
   grid-template-areas: 
-    "image text" 
-    "stats buttons ";
+    "image"
+    "text"
+    "stats"
+    "buttons";
   column-gap: 15px;
 }
 
@@ -104,6 +107,17 @@
   outline-width: 1px;
   outline-color: var(--color-blu);
   background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .Items_card-item {
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: 4fr 1fr;
+    grid-template-areas: 
+      "image text" 
+      "stats buttons ";
+    column-gap: 15px;
+  }
 }
 
 @media (min-width: 1024px) {

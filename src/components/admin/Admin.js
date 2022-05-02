@@ -12,6 +12,7 @@ import Login from './Login';
 function Admin() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -28,8 +29,8 @@ function Admin() {
 
   return (
     <div>
-      <TopBar/>
-      <SideBar/>
+      <TopBar open={open} onOpenChange={(opn) => setOpen(opn)}/>
+      <SideBar open={open}/>
       <Routes>
         <Route path='items' element={<Items/>}/>
         <Route path='messages' element={<Messages/>}/>

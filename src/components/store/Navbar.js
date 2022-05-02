@@ -16,6 +16,7 @@ function Navbar({ currentTab }) {
   const navigate = useNavigate();
   
   const [username, setUsername] = useState(undefined);
+  const [showLogout, setShowLogout] = useState(false);
 
   function checkUsername() {
     const username = localStorage.getItem('username');
@@ -103,7 +104,7 @@ function Navbar({ currentTab }) {
                 >{item.name}</button>
               ))}
               {username ? 
-                <div className='flex flex-row items-center gap-2 ml-2 pt-3'>
+                <div className='flex flex-row items-center gap-2 ml-2 pt-3' onClick={() => setShowLogout(prev => !prev)}>
                   <UserCircleIcon className='h-8 w-8 text-white'/>
                   <p className='font-normal text-white'>{username}</p>
                 </div>
@@ -113,6 +114,11 @@ function Navbar({ currentTab }) {
                   >Login</button>
                   <button className='hover:bg-black hover:bg-opacity-30 w-full rounded-xl px-4 py-2 transition-opacity text-left text-white'>Register</button>
                 </div>
+              }
+              {username && showLogout && 
+                <button className='w-full rounded-xl px-4 py-2 transition-opacity text-left text-white'
+                  onClick={logout}
+                >Logout</button>
               }
             </div>
           </Disclosure.Panel>

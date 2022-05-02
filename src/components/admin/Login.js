@@ -13,7 +13,9 @@ function Login() {
     password: ''
   });
 
-  async function login() {
+  async function login(event) {
+    event.preventDefault();
+
     let result = await AuthService.login(credentials);
     if (result) {
       setLoginError(true);
@@ -24,7 +26,7 @@ function Login() {
 
   return ( 
     <div className='Login_parent'>
-      <div className='card Login_card'>
+      <form className='card Login_card' onSubmit={login}>
         <div className='Login_icon'>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -39,13 +41,13 @@ function Login() {
           <p className='Login_input-label'>Password</p>
           <input type='password' className='Login_input-text' onChange={e => setCredentials(prev => ({...prev, password: e.target.value}))}/>
         </div>
-        {loginError && 
+        {loginError &&
           <div className='Login_error-message'>
             <p className=''>Login error</p>
           </div>
         }
-        <div className='btn Login_btn-login' onClick={login}>Login</div>
-      </div>
+        <button className='btn Login_btn-login' type='submit'>Login</button>
+      </form>
     </div>
   );
 }

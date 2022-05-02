@@ -1,0 +1,41 @@
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-dark-teal);
+  z-index: 100;
+}
+
+.TopBar_icon-user-avatar {
+  margin-left: auto;
+  margin-right: 15px;
+}
+
+.TopBar_username {
+  display: inline-block;
+  color: white;
+  margin: auto 29px auto 0px;
+}
+
+.TobBar_btn-logout {
+  background-color: var(--color-light-blu);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 30px;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  header {
+    justify-content: end;
+  }
+  
+  .TopBar_menu-icon {
+    display: none;
+  }
+}
