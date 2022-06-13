@@ -13,6 +13,7 @@ function constants() {
   this.CATEGORY_URL = '/category';
   this.ITEM_URL = '/product';
   this.MESSAGE_URL = '/inquiry';
+  this.NEW_USER_URL = '/user';
 }
 
 const Constants = new constants();

@@ -3,6 +3,7 @@ import Constants from "./Constants";
 import TokenService from "./TokenService";
 
 const LOGIN_URL = Constants.BASE_URL + Constants.LOGIN_URL;
+const NEW_USER_URL = Constants.BASE_URL + Constants.NEW_USER_URL;
 
 async function login(credentials) {
   
@@ -19,13 +20,25 @@ async function login(credentials) {
   }
 }
 
+async function register(credentials) {
+  try {
+    const response = await axios.post(NEW_USER_URL, credentials);
+    if (response.status != 201) {
+      return response.data;
+    }
+  } catch (error) {
+    return error;
+  }
+}
+
 function logout() {
   TokenService.removeTokens();
 }
 
 const AuthService = {
   login,
-  logout
+  logout,
+  register
 }
 
 export default AuthService;

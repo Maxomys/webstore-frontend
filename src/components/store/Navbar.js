@@ -82,7 +82,9 @@ function Navbar({ currentTab }) {
                 <button className='bg-black bg-opacity-20 rounded-l-xl px-5 py-2 transition-opacity hover:bg-opacity-30' 
                   onClick={() => navigate('/login')}
                 >Login</button>
-                <button className='bg-black bg-opacity-20 rounded-r-xl px-5 py-2 transition-opacity hover:bg-opacity-30'>Register</button>
+                <button className='bg-black bg-opacity-20 rounded-r-xl px-5 py-2 transition-opacity hover:bg-opacity-30'
+                  onClick={() => navigate('/register')}
+                >Register</button>
               </div>
             }
             <div className='md:hidden self-center flex items-center'>
@@ -112,7 +114,9 @@ function Navbar({ currentTab }) {
                   <button className='hover:bg-black hover:bg-opacity-30 w-full rounded-xl px-4 py-2 transition-opacity text-left text-white'
                     onClick={() => navigate('/login')}
                   >Login</button>
-                  <button className='hover:bg-black hover:bg-opacity-30 w-full rounded-xl px-4 py-2 transition-opacity text-left text-white'>Register</button>
+                  <button className='hover:bg-black hover:bg-opacity-30 w-full rounded-xl px-4 py-2 transition-opacity text-left text-white'
+                    onClick={() => navigate('/register')}
+                  >Register</button>
                 </div>
               }
               {username && showLogout && 
