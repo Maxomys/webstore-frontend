@@ -6,5 +6,5 @@
 
 backend: https://github.com/Maxomys/spring-webstore
 
-Build with react, axios, tailwind
+Built with react, axios, tailwind
 
