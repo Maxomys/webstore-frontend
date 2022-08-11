@@ -1,0 +1,52 @@
+:root {
+  --color-dark-teal: #053742;
+  --color-blu: #39A2DB;
+  --color-light-blu: #A2DBFA;
+  --color-light-gray: #E8F0F2;
+  --color-white: white;
+  --color-grayish: #D3D3D3;
+  --color-background-gray: #F4F4F4;
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-light: 300;
+}
+
+.Categories_table td {
+  padding: 10px 30px;
+}
+
+.Categories_table tr {
+
+}
+
+.Categories_btn-delete {
+  
+}
+
+.Categories_form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.Categories_category-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.Categories_text-field {
+  margin-bottom: 22px;
+  min-height: 45px;
+  min-width: 350px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: var(--color-light-blu);
+  font-size: 20px;
+  font-weight: var(--font-weight-light);
+  padding-left: 10px;
+}
+
+.Categories_btn-submit {
+  margin: auto;
+}

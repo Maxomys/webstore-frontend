@@ -2,6 +2,7 @@ import {  useState } from 'react';
 import '../styles/login.css'
 import AuthService from 'services/AuthService'
 import { useNavigate } from 'react-router-dom';
+import Constants from 'services/Constants';
 
 function Login() {
   
@@ -16,8 +17,24 @@ function Login() {
   async function login(event) {
     event.preventDefault();
 
-    let result = await AuthService.login(credentials);
-    if (result) {
+    let error = await AuthService.login(credentials);
+    if (error) {
+      setLoginError(true);
+      return;
+    }
+    navigate('/admin');
+  }
+
+  async function demoLogin(event) {
+    let demoCredentials = {
+      username: Constants.DEMO_USERNAME,
+      password: ''
+    } 
+
+    event.preventDefault();
+
+    let error = await AuthService.login(demoCredentials);
+    if (error) {
       setLoginError(true);
       return;
     }
@@ -47,6 +64,7 @@ function Login() {
           </div>
         }
         <button className='btn Login_btn-login' type='submit'>Login</button>
+        <button className='Login_btn-demo' onClick={demoLogin}>Demo User Login</button>
       </form>
     </div>
   );

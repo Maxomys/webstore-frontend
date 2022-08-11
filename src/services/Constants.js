@@ -14,6 +14,7 @@ function constants() {
   this.ITEM_URL = '/product';
   this.MESSAGE_URL = '/inquiry';
   this.NEW_USER_URL = '/user';
+  this.DEMO_USERNAME = 'demo';
 }
 
 const Constants = new constants();

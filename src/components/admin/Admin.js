@@ -7,6 +7,7 @@ import Messages from './Messages';
 import { Route, Routes } from 'react-router-dom';
 import AddItem from './AddItem';
 import Login from './Login';
+import Categories from './Categories';
 
 
 function Admin() {
@@ -34,6 +35,7 @@ function Admin() {
       <Routes>
         <Route path='items' element={<Items/>}/>
         <Route path='messages' element={<Messages/>}/>
+        <Route path='categories' element={<Categories/>}/>
         <Route path='addItem' element={<AddItem/>}/>
       </Routes>
     </div>

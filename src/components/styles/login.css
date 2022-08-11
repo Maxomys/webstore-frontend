@@ -87,4 +87,9 @@
 
 .Login_btn-login {
   box-shadow: 3px 4px 10px -5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.Login_btn-demo {
+  color: var(--color-dark-teal);
 }
