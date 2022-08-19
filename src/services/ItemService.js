@@ -86,6 +86,16 @@ async function getItemById(itemId) {
   return item;
 }
 
+async function searchItemsByName(name) {
+  let itemArray = [];
+  
+  const res = await Api.get(ITEM_URL + '/search/' + name)
+    .catch(error => console.log(error));
+
+  itemArray = res.data;
+  return itemArray;
+}
+
 async function postItem(item, images) {
   const res = await Api.post(ITEM_URL, item)
     .catch(error => console.log(error));
@@ -118,6 +128,7 @@ const ItemService = {
   getAllItems,
   getAllItemsForUser,
   getItemById,
+  searchItemsByName,
   deleteItemById,
   postItem,
   getItemsPage,

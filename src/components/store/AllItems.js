@@ -8,6 +8,7 @@ import ItemCard from './ItemCard';
 import CategoryService from "services/CategoryService";
 import PageSizeDropdown from "./PageSizeDropdown";
 import { useParams } from 'react-router-dom';
+import Searchbar from "./Searchbar";
 
 function AllItems() {
 
@@ -67,7 +68,8 @@ function AllItems() {
   return ( 
     <React.Fragment>
       <Navbar currentTab={'Items'}/>
-      <div className='flex flex-col mx-auto mt-10 md:mt-20 max-w-6xl'>
+      <div className='flex flex-col mx-auto mt-10 md:mt-10 max-w-6xl'>
+        <Searchbar />
         <div className='mx-5'>
           <h2 className='text-3xl font-medium text-black/70 font-sans'>
             All items
