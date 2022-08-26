@@ -11,7 +11,7 @@ function ItemCard({ item }) {
 
   useEffect(() => {
     if (item.imageIds[0]){
-      setImageLink(Constants.BASE_URL + Constants.IMAGE_URL + '/' + item.imageIds[0]);
+      setImageLink(Constants.BASE_URL + Constants.IMAGE_URL + '/' + item.imageIds[0] + '/thumbnail');
     }
   }, []);
   

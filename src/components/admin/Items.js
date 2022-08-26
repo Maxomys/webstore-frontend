@@ -37,7 +37,7 @@ function Items() {
 
         {items && items.map(item => (
           <div className='card Items_card-item' key={item.id}>
-            <img className='Items_item-img' src={`${Constants.BASE_URL}/image/${item.imageIds[0]}`} alt='img'/>
+            <img className='Items_item-img' src={`${Constants.BASE_URL}/image/${item.imageIds[0]}/thumbnail`} alt='img'/>
             <div className='Items_card-text'>
               <p className='Items_title'>{item.name}</p>
               <p className='Items_category'>{item.categoryName}</p>
