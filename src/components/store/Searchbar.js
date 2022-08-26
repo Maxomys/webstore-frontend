@@ -32,7 +32,7 @@ function Searchbar() {
         <div className='md:w-1/3 absolute top-10 mx-auto mt-1 flex flex-col p-3 bg-white border rounded-xl border-gray-300'>
           {data.map(elem => (
             <div key={elem.id} className='px-5 py-2 hover:bg-teal-100 rounded-xl cursor-pointer'
-              onClick={() => navigate('/item/' + elem.id)}>
+              onMouseDown={() => navigate('/item/' + elem.id)}>
               <p className='text-md font-semibold text-gray-800 '>{elem.name}</p>
               <p className='text-dm font-light text-gray-700'>{elem.categoryName}</p>
             </div>
