@@ -36,6 +36,12 @@ function AddItem() {
   }, []);
 
   useEffect(() => {
+    if (categories.length > 0) {
+      setNewItem(prev => ({...prev, categoryId: categories[0].id}))
+    }
+  }, [categories]);
+
+  useEffect(() => {
     console.log(newItem);
   }, [newItem]);
 
