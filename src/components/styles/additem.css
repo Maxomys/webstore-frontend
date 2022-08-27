@@ -129,6 +129,10 @@
   margin-bottom: 250px;
 }
 
+.AddItem_loading {
+  margin-bottom: 20px;
+}
+
 @keyframes add-image-hover {
   100% {
     background-color: var(--color-light-blu);

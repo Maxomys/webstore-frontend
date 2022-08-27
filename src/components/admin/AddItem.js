@@ -2,8 +2,11 @@ import '../styles/additem.css';
 import React, { useState, useEffect } from 'react';
 import CategoryService from '../../services/CategoryService';
 import ItemService from '../../services/ItemService';
+import { useNavigate } from 'react-router-dom';
 
 function AddItem() {
+
+  const navigate = useNavigate();
   
   const [newItem, setNewItem] = useState({
     'name': '',
@@ -14,6 +17,7 @@ function AddItem() {
 
   const [categories, setCategories] = useState([]);
   const [images, setImages] = useState([]);
+  const [isUploading, setIsUploading] = useState(false);
   
   function addSingleImage(e) {
     setImages([...images, e.target.files[0]])
@@ -24,7 +28,10 @@ function AddItem() {
   }
 
   async function postNewItem() {
-    ItemService.postItem(newItem, images);
+    setIsUploading(true);
+    await ItemService.postItem(newItem, images);
+    setIsUploading(false);
+    navigate('/admin/items');
   }
 
   function deleteImage(imgIndex) {
@@ -37,7 +44,7 @@ function AddItem() {
 
   useEffect(() => {
     if (categories.length > 0) {
-      setNewItem(prev => ({...prev, categoryId: categories[0].id}))
+      setNewItem(prev => ({...prev, categoryId: categories[0].id}));
     }
   }, [categories]);
 
@@ -62,7 +69,7 @@ function AddItem() {
           )) : <></>}
         </select>
         <p className='AddItem_label'>Cena</p>
-        <input className='AddItem_text-field AddItem_price' type='number' step='0.01' onChange={e => setNewItem(prev => ({...prev, price: e.target.value}))}/>
+        <input className='AddItem_text-field AddItem_price' type='number' step='1' onChange={e => setNewItem(prev => ({...prev, price: e.target.value}))}/>
       </div>
       <div className="card AddItem_card AddItem_image-card">
         <p className='AddItem_label'>Zdjęcia</p>
@@ -89,6 +96,11 @@ function AddItem() {
         <p className='AddItem_label'>Opis</p>
         <textarea className='AddItem_text-field AddItem_description' type="text" onChange={e => setNewItem(prev => ({...prev, description: e.target.value}))}/>
       </div>
+      {isUploading && 
+        <div className='AddItem_loading'>
+          <img src='/loading.svg' width='70' height='70' alt=''/>
+        </div>
+      }
       <div className="btn AddItem_btn-add" onClick={postNewItem}>Dodaj</div>
     </div>
   );

@@ -18,14 +18,14 @@ function ItemCard({ item }) {
   return (
     <div className='w-72 flex flex-col justify-between gap-2 bg-white hover:bg-slate-50 rounded-xl shadow-md p-5' onClick={() => navigate('/item/' + item.id)}>
       <div className='flex flex-col justify-start gap-2'>
-        <div className='w-56 mb-4 mx-auto bg-neutral-400 rounded-xl shadow-xl'>
+        <div className='w-56 h-56 mb-4 mx-auto bg-neutral-400 rounded-xl shadow-xl'>
           {imageLink ?
-            <img className='rounded-xl' src={imageLink} alt='' />
+            <img className='rounded-xl w-full h-full object-cover' src={imageLink} alt='' />
             : <PhotographIcon/>
           }
         </div>
         <p className='text-xl font-medium'>{item.name}</p>
-        <p className='text-sm font-extralight max-h-56 overflow-clip'>
+        <p className='text-sm font-extralight h-28 overflow-clip'>
           {item.description}
         </p>
       </div>

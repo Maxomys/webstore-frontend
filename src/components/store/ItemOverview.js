@@ -1,7 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import { PhotographIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Constants from 'services/Constants';
 import ItemService from 'services/ItemService';
 import MessageService from 'services/MessageService';
@@ -9,6 +9,8 @@ import Navbar from './Navbar';
 
 function ItemOverview( {} ) {
 
+  const navigate = useNavigate();
+  
   let params = useParams();
   
   const [item, setItem] = useState();
@@ -29,7 +31,11 @@ function ItemOverview( {} ) {
     if (item.imageIds) {
       let links = [];
       for (const id of item.imageIds) {
-        links.push(Constants.BASE_URL + Constants.IMAGE_URL + '/' + id + '/thumbnail');
+        links.push({
+          id: id,
+          thumbnail: Constants.BASE_URL + Constants.IMAGE_URL + '/' + id + '/thumbnail', 
+          fullSize: Constants.BASE_URL + Constants.IMAGE_URL + '/' + id
+        });
       }
       setImageLinks(links);
     }
@@ -63,10 +69,10 @@ function ItemOverview( {} ) {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mt-12 p-4'>
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 w-xl justify-items-center'>
             {imageLinks.length > 0 ? 
-              imageLinks.map((link, index) => (
-                <div key={index} className='w-52 h-52 rounded-xl shadow-xl'>
-                  <img className='rounded-xl object-cover' src={link} alt='' />
-                </div>
+              imageLinks.map(link => (
+                <a key={link.id} href={link.fullSize} target='_blank' className='m-auto rounded-xl shadow-xl cursor-pointer'>
+                  <img className='rounded-xl  object-cover' src={link.thumbnail} alt='' />
+                </a>
               ))
             : <div className='w-52 h-52 bg-neutral-400 rounded-xl shadow-xl'>
                 <PhotographIcon/>
